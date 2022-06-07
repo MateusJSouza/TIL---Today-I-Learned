@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { CustomerContext } from '../../contexts/Customer';
 
-export const CustomerForm = ({ onSubmit }) => {
+import './styles.scss'
+
+export const CustomerForm = () => {
+  const { submit } = useContext(CustomerContext);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -9,7 +14,7 @@ export const CustomerForm = ({ onSubmit }) => {
     event.preventDefault();
     console.log('dados componente', { name, email })
 
-    onSubmit({ name, email })
+    submit({ name, email })
   }
 
   return (
