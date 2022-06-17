@@ -399,7 +399,7 @@ a:hover {
 
 @media (max-width: 600px) {
   #menu {
-    display: none;
+    display: block;
     position: absolute;
     width: 100%;
     top: 70px;
@@ -409,16 +409,19 @@ a:hover {
     -webkit-transition: .6s;
     transition: .6s;
     z-index: 1000;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  #menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
   }
   #nav.active #menu {
     height: calc(100vh - 70px);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-  #nav.active #menu a {
-    padding: 1rem 0;
-    margin: 0 1rem;
     border-bottom: 2px solid rgba(0, 0, 0, 0.05);
   }
   #btn-mobile {
@@ -430,6 +433,34 @@ a:hover {
     border: none;
     background: none;
     cursor: pointer;
+    gap: .5rem;
+  }
+  #hamburger {
+    border-top: 2px solid;
+    width: 20px;
+  }
+  #hamburger::after, #hamburger::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    -webkit-transition: .5s;
+    transition: .5s;
+    position: relative;
+  }
+  #nav.active #hamburguer {
+    border-top-color: transparent;
+  }
+  #nav.active #hamburguer::before {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  #nav.active #hamburguer::after {
+    -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+    top: -7px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
