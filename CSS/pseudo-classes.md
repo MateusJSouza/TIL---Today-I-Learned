@@ -16,6 +16,17 @@ Pseudo-classes começam com 2 pontos seguido do nome da pseudo classe
 
 ## Ações do usuário 
 
+* :hover
+* :focus
+
+## Atributos 
+
+* :disabled
+* :required
+
+## Referência
+
+https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes
 
 ### Exemplo prático `:first-child`
 
