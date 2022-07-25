@@ -1,3 +1,8 @@
+/*
+  Dado um número aleatório não negativo, você deve retornar os dígitos desse
+  número em uma matriz na ordem inversa.
+*/
+
 function digitize(n) {
   return String(n).split('').map(Number).reverse()
 }

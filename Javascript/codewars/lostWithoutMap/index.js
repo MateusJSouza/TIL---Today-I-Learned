@@ -1,3 +1,5 @@
+// Dada uma matriz de inteiros, retorne uma nova matriz com cada valor dobrado.
+
 function maps(x){
   console.log(x)
   return Array.from(x.map(x => x *= 2))
