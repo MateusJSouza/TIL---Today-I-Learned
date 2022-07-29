@@ -1,3 +1,21 @@
+/*
+  O relógio mostra h horas, m minutos e s segundos após a meia-noite.
+
+  Sua tarefa é escrever uma função que retorne a hora desde a meia-noite em milissegundos.
+
+  Exemplo:
+  h = 0
+  m = 1
+  s = 1
+
+  resultado = 61000
+  Restrições de entrada:
+
+  0 <= h <= 23
+  0 <= m <= 59
+  0 <= s <= 59
+*/
+
 function past(h, m, s){
   return h * 3600000 + m * 60000 + s * 1000;
 }
