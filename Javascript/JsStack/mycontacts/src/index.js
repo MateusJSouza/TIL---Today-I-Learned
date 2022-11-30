@@ -1,14 +1,12 @@
 const express = require('express');
 
+const routes = require('./routes');
+
 const app = express();
 
-app.get('/', (request, response) => {
-  response.send('Hello World!');
-});
+app.use(routes);
 
-app.listen(3001, () => {
-  console.log('🔥 Server started at http://localhost:3001');
-});
+app.listen(3001, () => console.log('🔥 Server started at http://localhost:3001'));
 
 /*
   Para utilizarmos o nodemon, basta digitar no terminal o seguinte comando:
