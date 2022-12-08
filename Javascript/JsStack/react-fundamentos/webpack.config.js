@@ -25,5 +25,8 @@ module.exports = {
         exclude: /node_modules/, // exceto nos arquivos .js que estão dentro da node_modules
       },
     ],
+  },
+  devServer: {
+    port: 3000,
   }
 };
