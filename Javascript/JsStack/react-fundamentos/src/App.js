@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header } from './components/Header';
 import { Post } from './components/Post';
 
 const titleZeroOne = 'Título Zero UM'
@@ -7,8 +8,10 @@ const titleZeroOne = 'Título Zero UM'
 export function App() {
   return (
     <>
-      <h1>JStack's Blog</h1>
-      <h2>Posts da semana</h2>
+      <Header title="JStack's Blog">
+        <h2>Posts da semana</h2>
+      </Header>
+      <br />
 
       {/* Passando as propriedades no formato de objeto */}
       <Post
