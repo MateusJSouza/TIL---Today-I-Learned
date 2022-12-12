@@ -16,5 +16,5 @@ Header.PropTypes = {
 };
 
 Header.defaultProps = {
-  title: `JStack's Blog`,
+  title: `JStack's Blog`, // valor padrão da propriedade title, caso não seja passado nada
 };
