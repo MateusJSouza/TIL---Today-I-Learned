@@ -4,8 +4,8 @@ export function Post(props) {
   return (
     <>
       <article>
-        <strong>{props.title}</strong> <br />
-        <small>{props.subtitle}</small>
+        <strong>{props.post.title}</strong> <br />
+        <small>{props.post.subtitle}</small>
       </article>
       <br />
     </>
