@@ -1,8 +1,64 @@
-# Conteúdos abordados neste repositório
-
+## NodeJS
  - [x] NodeJS;
  - [x] Yarn e NPM;
  - [x] Criando servidor HTTP com Express;
- - [x] Instalação e usando o Nodemon;
+ - [x] Instalação do Nodemon;
  - [x] NPM Scripts (automação de scripts, criação de atalhos);
- - [x] Configurando ESLint e editorconfig;
+ - [x] Configurando ESLint e Editorconfig;
+ 
+## Javascript
+ - [x] Objeto this, arguments e diferenças entre functions e arrow functions
+ - [x] Parâmetros default em funções;
+ - [x] Destructuring;
+ - [x] Rest Operator;
+ - [x] Imutabilidade e Spread Operator;
+ - [x] Template Strings;
+ - [x] Promises;
+ - [x] ESModules;
+ - [x] includes(), .startsWith() e .endsWith();
+ - [x] find() e findIndex();
+ - [x] some() e every();
+ - [x] map();
+ - [x] filter();
+ - [x] reduce().
+
+## ReactJs
+
+ - [x] Entendendo o React;
+ - [x] Declarativo vs Imperativo;
+ - [x] Configurando o Babel;
+ - [x] Gerando o Bundle com o Webpack;
+ - [x] Entendendo e configurando Loaders;
+ - [x] Criando um servidor local de desenvolvimento;
+ - [x] Criando o nosso primeiro componente;
+ - [x] React Fragment;
+ - [x] Expressões JS no JSX;
+ - [x] O que são props?;
+ - [ ] Prop children;
+ - [ ] Definindo tipos para as props;
+ - [ ] Renderizando listas;
+ - [ ] Trabalhando com states;
+ - [ ] Funções de callback via Props;
+ - [ ] Renderização condicional;
+ - [ ] Trabalhando com a Context API;
+ - [ ] Inline styles;
+ - [ ] Trabalhando com arquivos css;
+- [ ] CSS Modules;
+- [ ] SASS e SASS Modules;
+- [ ] Classes dinâmicas;
+- [ ] Introdução a Styled Components;
+- [ ] Criando Styled Components;
+- [ ] Estilizando componentes com o styled;
+- [ ] Trabalhando com props em styled components;
+- [ ] Definindo vários estilos dentro da mesma função;
+- [ ] Dicas de navegação entre componentes no VSCode;
+- [ ] O que é Theming;
+- [ ] Implementando Theming no VSCode;
+- [ ] Utilizando theme no restante dos componentes;
+- [ ] Implementando a troca de temas;
+- [ ] Usando o useTheme;
+- [ ] Manipulando o lifecycle com o useEffect;
+- [ ] Executando função quando o componente desmontar;
+- [ ] Diferenças entre o useEffect e o useLayoutEffect;
+- [ ] Parando a execução do useEffect no primeiro render;
+- [ ] Bônus: adicionando e removendo eventListeners.
