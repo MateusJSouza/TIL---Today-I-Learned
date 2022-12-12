@@ -8,7 +8,7 @@ const titleZeroOne = 'Título Zero UM'
 export function App() {
   return (
     <>
-      <Header title="JStack's Blog">
+      <Header title="Blog do JStack">
         <h2>Posts da semana</h2>
       </Header>
       <br />
