@@ -10,7 +10,7 @@ export function Header(props) {
   )
 }
 
-Header.PropTypes = {
+Header.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node,
 };
