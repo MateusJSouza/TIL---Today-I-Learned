@@ -10,16 +10,14 @@ export function PostHeader(props) {
         {!props.post.read && <s>{props.post.title}</s>}
       </strong>
       <Button
-        theme={props.theme}
         onClick={() => props.onRemove(props.post.id)}>
         Remover
       </Button>
     </>
-  )
+  );
 }
 
 PostHeader.propTypes = {
-  theme: PropTypes.string.isRequired,
   onRemove: PropTypes.func.isRequired,
   // Tipando um objeto
   post: PropTypes.shape({

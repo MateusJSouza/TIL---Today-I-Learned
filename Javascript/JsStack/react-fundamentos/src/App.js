@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Post } from './components/Post';
 
+import { ThemeProvider } from './context/ThemeContext';
+
 // Props -> propriedades
 export function App() {
-  const [theme, setTheme] = useState('dark');
 
   const [posts, setPosts] = useState([
     { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false},
@@ -13,14 +14,6 @@ export function App() {
     { id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false},
     { id: Math.random(), title: 'Title#04', subtitle: 'Sub#04', likes: 80, read: true},
   ]);
-
-  function handleToggleTheme() {
-    setTheme((prevState) =>
-      prevState === 'dark'
-        ? 'light'
-        : 'dark'
-    );
-  }
 
   function handleRefresh() {
     // Mantendo os posts e adicionando os novos em cada atualização
@@ -43,11 +36,8 @@ export function App() {
   }
 
   return (
-    <>
-      <Header
-        theme={theme}
-        onToggleTheme={handleToggleTheme}
-      >
+    <ThemeProvider>
+      <Header>
         <h2>
           Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
@@ -61,9 +51,8 @@ export function App() {
           key={post.id}
           onRemove={handleRemovePost}
           post={post}
-          theme={theme}
         />
       ))}
-    </>
+    </ThemeProvider>
   )
 }

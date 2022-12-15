@@ -11,7 +11,6 @@ export function Post(props) {
     <>
       <article>
         <PostHeader
-          theme={props.theme}
           onRemove={props.onRemove}
           post={{
             id: props.post.id,
@@ -31,7 +30,6 @@ export function Post(props) {
 
 // Tipando as propriedades com o PropTypes
 Post.propTypes = {
-  theme: PropTypes.string.isRequired,
   onRemove: PropTypes.func.isRequired,
   // Tipando um objeto
   post: PropTypes.shape({
