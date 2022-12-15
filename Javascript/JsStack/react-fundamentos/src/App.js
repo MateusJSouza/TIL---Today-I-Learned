@@ -14,17 +14,22 @@ export function App() {
 
   function handleRefresh() {
     // Mantendo os posts e adicionando os novos em cada atualização
-    setTimeout(() => {
-      setPosts((prevState) => [
-        ...prevState,
-        {
-          id: Math.random(),
-          title: `Title#0${posts.length + 1}`,
-          subtitle: `Sub#0${posts.length + 1}`,
-          likes: 50
-        }
-      ])
-    }, 2000)
+    setPosts((prevState) => [
+      ...prevState,
+      {
+        id: Math.random(),
+        title: `Title#0${prevState.length + 1}`,
+        subtitle: `Sub#0${prevState.length + 1}`,
+        likes: 50
+      }
+    ])
+  }
+
+  function handleRemovePost(postId) {
+    setPosts((prevState) => (
+      // Mantém os posts que possuem o ID diferente do ID que estou deletando
+      prevState.filter(post => post.id !== postId)
+    ));
   }
 
   return (
@@ -41,7 +46,9 @@ export function App() {
       {posts.map(post => (
         <Post
           key={post.id}
+          onRemove={handleRemovePost}
           post={{
+            id: post.id,
             title: post.title,
             subtitle: post.subtitle
           }}
