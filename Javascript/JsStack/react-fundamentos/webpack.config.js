@@ -24,6 +24,10 @@ module.exports = {
         test: /\.js$/, // em todos os arquivos .js
         exclude: /node_modules/, // exceto nos arquivos .js que estão dentro da node_modules
       },
+      {
+        test: /\.css$/, // toda vez que um arquivo acabar com a extensão .css
+        use: ['style-loader', 'css-loader']
+      }
     ],
   },
   devServer: {
