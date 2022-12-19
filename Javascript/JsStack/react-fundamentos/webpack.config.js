@@ -25,7 +25,7 @@ module.exports = {
         exclude: /node_modules/, // exceto nos arquivos .js que estão dentro da node_modules
       },
       {
-        test: /\.css$/, // toda vez que um arquivo acabar com a extensão .css
+        test: /\.scss$/, // toda vez que um arquivo acabar com a extensão .css
         use: [
           'style-loader',
           // Ligando o CSS Modules
@@ -35,9 +35,9 @@ module.exports = {
               modules: true,
             }
           },
-
+          'sass-loader',
         ]
-      }
+      },
     ],
   },
   devServer: {
