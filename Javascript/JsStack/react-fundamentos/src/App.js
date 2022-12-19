@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
-import { Header } from './components/Header';
-import { Post } from './components/Post';
+import { Header } from './components/Header/Header';
+import { Post } from './components/Post/Post';
 
 import { ThemeProvider } from './context/ThemeContext';
+
+import styles from './App.css';
 
 // Props -> propriedades
 export function App() {
@@ -38,7 +39,7 @@ export function App() {
   return (
     <ThemeProvider>
       <Header>
-        <h2>
+        <h2 className={styles.title}>
           Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
           <button onClick={() => {setPosts([])}}>Limpar</button>

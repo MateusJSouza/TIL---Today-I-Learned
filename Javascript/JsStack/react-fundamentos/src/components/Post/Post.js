@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import PropTypes from 'prop-types'
-import { PostHeader } from './PostHeader';
+import { PostHeader } from '../PostHeader/PostHeader';
 
 export function Post(props) {
   if (props.post.read) {

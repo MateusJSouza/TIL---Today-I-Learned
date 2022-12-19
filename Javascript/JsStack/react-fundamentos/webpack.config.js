@@ -26,7 +26,17 @@ module.exports = {
       },
       {
         test: /\.css$/, // toda vez que um arquivo acabar com a extensão .css
-        use: ['style-loader', 'css-loader']
+        use: [
+          'style-loader',
+          // Ligando o CSS Modules
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            }
+          },
+
+        ]
       }
     ],
   },
