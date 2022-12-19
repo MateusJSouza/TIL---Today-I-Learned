@@ -10,10 +10,10 @@ import styles from './App.css';
 export function App() {
 
   const [posts, setPosts] = useState([
-    { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false},
-    { id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10, read: true},
-    { id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false},
-    { id: Math.random(), title: 'Title#04', subtitle: 'Sub#04', likes: 80, read: true},
+    { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: true},
+    { id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10, read: false},
+    { id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: true},
+    { id: Math.random(), title: 'Title#04', subtitle: 'Sub#04', likes: 80, read: false},
   ]);
 
   function handleRefresh() {

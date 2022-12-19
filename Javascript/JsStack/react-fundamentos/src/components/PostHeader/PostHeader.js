@@ -6,7 +6,7 @@ export function PostHeader(props) {
   return (
     <>
       <strong>
-        {props.post.read && <s>{props.post.title}</s>}
+        {props.post.read && props.post.title}
         {!props.post.read && <s>{props.post.title}</s>}
       </strong>
       <Button
