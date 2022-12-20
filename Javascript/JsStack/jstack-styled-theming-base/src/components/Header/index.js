@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 import { Container } from './styles';
 
-export default function Header({ onToggleTheme, selectedThemeIcon }) {
+export default function Header() {
+  const { onToggleTheme, selectedThemeIcon } = useContext(ThemeContext)
+
   return (
     <Container>
       <h1>JStack's Blog</h1>
