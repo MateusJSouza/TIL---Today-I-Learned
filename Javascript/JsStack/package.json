@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "prop-types": "^15.8.1",
-    "styled-components": "^5.3.6"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "sass": "^1.57.0",
