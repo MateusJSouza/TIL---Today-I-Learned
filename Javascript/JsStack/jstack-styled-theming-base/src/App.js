@@ -1,15 +1,16 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import GlobalStyle from './styles/global';
 import Layout from './components/Layout';
+import GlobalStyle from './styles/global';
 
-function App() {
+import themes from './styles/themes';
+
+export function App() {
   return (
-    <>
+    <ThemeProvider theme={themes.light}>
       <GlobalStyle />
       <Layout />
-    </>
+    </ThemeProvider>
   );
 };
-
-export default App;
