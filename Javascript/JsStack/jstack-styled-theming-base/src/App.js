@@ -8,7 +8,7 @@ import themes from './styles/themes';
 
 export function App() {
   return (
-    <ThemeProvider theme={themes.light}>
+    <ThemeProvider theme={themes.dark}>
       <GlobalStyle />
       <Layout />
     </ThemeProvider>
