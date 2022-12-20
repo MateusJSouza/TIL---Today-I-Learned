@@ -5,8 +5,7 @@ import { Post } from '../Post/index';
 
 import { ThemeProvider } from '../../context/ThemeContext';
 
-import styles from './App.scss';
-
+import { Title } from './styles';
 
 // Props -> propriedades
 export function App() {
@@ -44,11 +43,11 @@ export function App() {
   return (
     <ThemeProvider>
       <Header>
-        <h2 className={styles.title}>
+        <Title as="h2">
           Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
           <button onClick={() => {setPosts([])}}>Limpar</button>
-        </h2>
+        </Title>
       </Header>
       <hr />
 
