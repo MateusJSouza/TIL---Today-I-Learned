@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "prop-types": "^15.8.1"
-  },
-  "devDependencies": {
-    "sass": "^1.57.0",
-    "sass-loader": "^13.2.0"
-  }
-}
