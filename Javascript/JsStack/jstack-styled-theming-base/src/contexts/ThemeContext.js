@@ -12,8 +12,6 @@ export function ThemeContextProvider({ children }) {
     // Traz o valor do meu storage, no caso 'dark'
     const storageValueTheme = localStorage.getItem('theme');
 
-    console.log({ storageValueTheme })
-
     // Se existir um valor, ele converte esse valor em uma string com o JSON.parse
     if (storageValueTheme) {
       return JSON.parse(storageValueTheme);
