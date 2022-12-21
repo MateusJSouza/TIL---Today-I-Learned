@@ -7,7 +7,7 @@ import themes from '../styles/themes';
 export const ThemeContext = createContext('dark');
 
 export function ThemeContextProvider({ children }) {
-    const [theme, setTheme] = useState(() => {
+  const [theme, setTheme] = useState(() => {
 
     // Traz o valor do meu storage, no caso 'dark'
     const storageValueTheme = localStorage.getItem('theme');
@@ -54,7 +54,7 @@ export function ThemeContextProvider({ children }) {
         selectedThemeIcon: theme,
       }}
     >
-      {/* Envolvendo o tema para os demais componentes, passando seu valor atual 'dark' ou 'light' */}
+      {/* Provendo o tema para os demais componentes, passando seu valor atual 'dark' ou 'light' */}
       <ThemeProvider theme={currentTheme}>
         {children}
       </ThemeProvider>
