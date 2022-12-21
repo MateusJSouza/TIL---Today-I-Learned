@@ -7,13 +7,19 @@ import themes from '../styles/themes';
 export const ThemeContext = createContext('dark');
 
 export function ThemeContextProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
+    const [theme, setTheme] = useState(() => {
+
+    // Traz o valor do meu storage, no caso 'dark'
     const storageValueTheme = localStorage.getItem('theme');
 
+    console.log({ storageValueTheme })
+
+    // Se existir um valor, ele converte esse valor em uma string com o JSON.parse
     if (storageValueTheme) {
       return JSON.parse(storageValueTheme);
     }
 
+    // Caso não exista, ele retorna um array vazio
     return [];
   });
 
@@ -36,7 +42,7 @@ export function ThemeContextProvider({ children }) {
     )
   }
 
-  // Salvando o valor do tema no localStorage
+  // Salvando o valor do tema no localStorage, atualizando a cada vez que o tema for alterado pelo clique do botão
   // JSON.stringfy -> converte valores em javascript para uma string JSON
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme))
