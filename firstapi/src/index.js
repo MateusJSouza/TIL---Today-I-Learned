@@ -1,5 +1,5 @@
 const http = require('http');
-const { URL } = require('url');
+const { URL } = require('url'); // WHATWG URL API substitui o url.parse
 
 const routes = require('./routes')
 
