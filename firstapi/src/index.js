@@ -1,5 +1,6 @@
 const http = require('http');
 const { URL } = require('url'); // WHATWG URL API substitui o url.parse
+const bodyParser = require('./helpers/bodyParser');
 
 const routes = require('./routes')
 
@@ -34,7 +35,13 @@ const server = http.createServer((request, response) => {
       response.end(JSON.stringify(body));
     }
 
-    route.handler(request, response)
+    // Includes -> verifica se uma informação está dentro deste array, no caso, se POST ou PUT existem no request.method
+    if (['POST', 'POST, PATCH'].includes(request.method)) {
+      bodyParser(request, () => route.handler(request, response));
+    } else {
+      route.handler(request, response)
+    }
+
   } else {
     response.writeHead(404, { 'Content-Type': 'text/html' });
     response.end(`Cannot ${request.method} ${parsedUrl.pathname}`); 
