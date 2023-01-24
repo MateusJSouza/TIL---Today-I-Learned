@@ -8,13 +8,27 @@ const server = http.createServer((request, response) => {
 
   console.log(`Request Method: ${request.method} | Endpoint: ${parsedUrl.pathname}`);
 
+  let { pathname } = parsedUrl;
+  let id = null;
+
+  // Dividingo a string transformando-a em um array
+  const splitEndpoint = pathname.split('/').filter(Boolean);
+  
+  // Se encontrou algum id
+  if (splitEndpoint.length > 1) {
+    pathname = `/${splitEndpoint[0]}/:id`;
+    id = splitEndpoint[1];
+  }
+
   const route = routes.find((routeObj) => (
-    routeObj.endpoint === parsedUrl.pathname && routeObj.method === request.method
+    routeObj.endpoint === pathname && routeObj.method === request.method
   ))
 
   if (route) {
     // Object.fromEntries -> transforma em um objeto javascript
     request.query = Object.fromEntries(parsedUrl.searchParams)
+    request.params = { id };
+
     route.handler(request, response)
   } else {
     response.writeHead(404, { 'Content-Type': 'text/html' });
