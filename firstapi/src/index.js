@@ -39,9 +39,8 @@ const server = http.createServer((request, response) => {
     if (['POST', 'POST, PATCH'].includes(request.method)) {
       bodyParser(request, () => route.handler(request, response));
     } else {
-      route.handler(request, response)
+      route.handler(request, response);
     }
-
   } else {
     response.writeHead(404, { 'Content-Type': 'text/html' });
     response.end(`Cannot ${request.method} ${parsedUrl.pathname}`); 
