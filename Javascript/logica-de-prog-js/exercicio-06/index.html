@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 06 - Lógica de Programação com Javascript</title>
+</head>
+<body>
+  <script>
+    let number = parseFloat(prompt('Digite um número: '));
+
+    let index = 1;
+
+    // While -> enquanto
+    while (index <= 1000) {
+      document.write( number + ' x ' + index + ' = ' + (number * index) + ' <br>');
+
+      if (index % 10 === 0 && index > 0) {
+        document.write('<hr>');
+      }
+
+      index += 1;
+
+    }
+    document.write('saiu do loop')
+
+    // Do while -> faça enquanto
+    // Quando notado que o bloco de código precisa ser executado somente uma vez, usamos o do while
+    do {
+      document.write( number + ' x ' + index + ' = ' + (number * index) + ' <br>');
+
+      index += 1;
+    } while (index <= 1000) {
+      document.write('saiu do loop')
+    }
+
+    // For -> para
+    for (let i = 0; i <= 1000; i++) {
+      document.write( number + ' x ' + i + ' = ' + (number * i) + ' <br>');
+    }
+    document.write('saiu do loop')
+
+  </script>
+</body>
+</html>
