@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 08 - Lógica de Programação com Javascript</title>
+</head>
+<body>
+  <script>
+    let year = 1000;
+
+    // Anos bissextos
+    while (year <= 2023) {
+      if ( !(year % 100 === 0) || (year % 400 === 0) ) {
+        document.write(year + '<br>');
+      } else document.write(year + ' não é bissexto!' + '<br>');
+
+      year += 1;
+    } 
+  </script>
+</body>
+</html>
