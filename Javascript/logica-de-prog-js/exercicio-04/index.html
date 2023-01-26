@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 04 - Lógica de Programação com Javascript</title>
+</head>
+<body>
+  <script>
+    let note1 = parseFloat(prompt('Digite a primeira nota: ')); 
+    let note2 = parseFloat(prompt('Digite a segunda nota: '));
+
+    let media = (note1 + note2) / 2;
+
+    if (note1 > 0 && note2 > 0 && media > 5) {
+      alert ('Parabéns! Você foi aprovado(a)');
+    } else alert('Desculpe, mas não foi dessa vez!');
+  </script>
+</body>
+</html>
