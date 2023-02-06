@@ -1,5 +1,7 @@
 const { v4 } = require('uuid');
 
+const db = require('../../database');
+
 let contacts = [
   {
     id: v4(),
@@ -31,21 +33,20 @@ class ContactsRepository {
     return Promise.resolve(contacts.find(contact => contact.email === email))
   }
 
-  create({
+  async create({
     name, email, phone, category_id
   }) {
-    return new Promise((resolve) => {
-      const newContact = {
-        id : v4(),
-        name,
-        email,
-        phone,
-        category_id
-      };
 
-      contacts.push(newContact);
-      resolve(newContact);
-    })
+    // Sempre que precisarmos usar um valor dinâmico, nós colocamos o dólar e um número sequencial
+    const [row] = await db.query(`
+      INSERT INTO contacts(name, email, phone, category_id)
+      VALUES($1, $2, $3, $4)
+      RETURNING *
+    `, [name, email, phone, category_id]);
+
+    return row;
+    // E depois fornecemos os valores que serão preenchidos nos dólares sequenciais
+    // RETURNING * -> retorna todas as colunas da tabela
   }
 
   update(id, {
