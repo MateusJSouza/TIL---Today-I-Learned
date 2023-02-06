@@ -48,6 +48,28 @@ class ContactsRepository {
     })
   }
 
+  update(id, {
+    name, email, phone, category_id
+  }) {
+    return new Promise((resolve) => {
+      const updatedContact = {
+        id,
+        name,
+        email,
+        phone,
+        category_id
+      };
+
+      // Mapeia os contatos e verifica se o ID do contato corresponde ao ID que estamos tentando alterar, se sim, atualiza os dados do contato com as informações fornecidas no objeto, caso contrário, mantém os dados do contato sem atualizações
+      contacts = contacts.map((contact) => (
+        contact.id === id ? updatedContact : contact
+      ));
+
+      // Finalmente a promessa é resolvida com o objeto de contato atualizado
+      resolve(updatedContact);
+    })
+  }
+
   delete(id) {
     return new Promise((resolve) => {
       contacts = contacts.filter(contact => contact.id !== id)
