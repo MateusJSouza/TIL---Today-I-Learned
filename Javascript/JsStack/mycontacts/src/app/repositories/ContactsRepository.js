@@ -56,26 +56,18 @@ class ContactsRepository {
     // RETURNING * -> retorna todas as colunas da tabela
   }
 
-  update(id, {
+  async update(id, {
     name, email, phone, category_id
   }) {
-    return new Promise((resolve) => {
-      const updatedContact = {
-        id,
-        name,
-        email,
-        phone,
-        category_id
-      };
+    // [row] -> a variável row sempre retorna um array, então aplicamos a desestruturação
+    const [row] = await db.query(`
+      UPDATE contacts
+      SET name = $1, email = $2, phone = $3, category_id = $4
+      WHERE id = $5
+      RETURNING *
+    `, [name, email, phone, category_id, id]);
 
-      // Mapeia os contatos e verifica se o ID do contato corresponde ao ID que estamos tentando alterar, se sim, atualiza os dados do contato com as informações fornecidas no objeto, caso contrário, mantém os dados do contato sem atualizações
-      contacts = contacts.map((contact) => (
-        contact.id === id ? updatedContact : contact
-      ));
-
-      // Finalmente a promessa é resolvida com o objeto de contato atualizado
-      resolve(updatedContact);
-    })
+    return row;
   }
 
   delete(id) {
