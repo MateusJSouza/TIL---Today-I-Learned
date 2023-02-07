@@ -22,8 +22,10 @@ let contacts = [
 class ContactsRepository {
 
   // Listar todos os repositórios
-  async findAll() {
-    const rows = await db.query('SELECT * FROM contacts');
+  async findAll(orderBy = 'ASC') {
+    const direction = orderBy.toUpperCase() === 'DESC' ? 'DESC' : 'ASC'; // prevenindo SQL Injection
+    // Ordenando a lista pelo nome e em ordem ascendente
+    const rows = await db.query(`SELECT * FROM contacts ORDER BY name ${direction}`);
     return rows;
   }
 
