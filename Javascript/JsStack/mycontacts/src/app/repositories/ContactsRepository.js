@@ -20,17 +20,22 @@ let contacts = [
 ]
 
 class ContactsRepository {
+
   // Listar todos os repositórios
-  findAll() {
-    return Promise.resolve(contacts);
+  async findAll() {
+    const rows = await db.query('SELECT * FROM contacts');
+    return rows;
   }
 
-  findById(id) {
-    return Promise.resolve(contacts.find(contact => contact.id === id))
+  // Buscando um contato pelo ID
+  async findById(id) {
+    const [row] = await db.query('SELECT * FROM contacts WHERE id = $1', [id]);
+    return row;
   }
 
-  findByEmail(email) {
-    return Promise.resolve(contacts.find(contact => contact.email === email))
+  async findByEmail(email) {
+    const [row] = await db.query('SELECT * FROM contacts WHERE email = $1', [email]);
+    return row;
   }
 
   async create({
