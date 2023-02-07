@@ -7,6 +7,8 @@ class CategoryController {
     response.json(categories);
   }
 
+  // Error handler (Middleware Express) -> manipulador de erros, ou seja, toda vez que acontecer um erro não tratado na aplicação, o express vai identificar que isso aconteceu e vai passar o erro para o error handler, onde ele vai pegar tudo que estiver dentro do catch
+
   async show(request, response) {
     const { id } = request.params;
     const category = await CategoriesRepository.findById(id);

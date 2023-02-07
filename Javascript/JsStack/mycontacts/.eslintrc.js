@@ -11,5 +11,6 @@ module.exports = {
         "ecmaVersion": "latest"
     },
     "rules": {
+      'no-unused-vars': ['error', { argsIgnorePattern: 'next' }] // ignora a regra apenas para variáveis com o nome next
     }
 }
