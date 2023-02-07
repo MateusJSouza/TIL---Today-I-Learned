@@ -1,23 +1,4 @@
-const { v4 } = require('uuid');
-
 const db = require('../../database');
-
-let contacts = [
-  {
-    id: v4(),
-    name: 'Mateus',
-    email: 'mateus@email.com',
-    phone: '123123213',
-    category_id: v4(),
-  },
-  {
-    id: v4(),
-    name: 'José',
-    email: 'jose@email.com',
-    phone: '123adsdads123213',
-    category_id: v4(),
-  }
-]
 
 class ContactsRepository {
 
@@ -70,11 +51,13 @@ class ContactsRepository {
     return row;
   }
 
-  delete(id) {
-    return new Promise((resolve) => {
-      contacts = contacts.filter(contact => contact.id !== id)
-      resolve();
-    })
+  async delete(id) {
+    // Não estou desestruturando porque o método sempre vai retornar um valor false ou um array vazio
+    const deleteOp = await db.query(`
+      DELETE FROM contacts WHERE id = $1
+    `, [id]);
+
+    return deleteOp;
   }
 }
 
