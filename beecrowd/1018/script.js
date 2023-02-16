@@ -19,6 +19,5 @@ N %= 5;
 console.log(`${Math.floor(N / 2)} nota(s) de R$ 2,00`);
 N %= 2;
 console.log(`${N} nota(s) de R$ 1,00`);
-value = value % nota;
 
 
