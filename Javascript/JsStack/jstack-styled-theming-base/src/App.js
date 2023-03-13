@@ -8,19 +8,11 @@ import Layout from './components/Layout';
 import themes from './styles/themes';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    theme: 'dark'
+  };
 
-    // Estados nos Class Components
-    this.state = {
-      theme: 'dark',
-    };
-
-    // bind()
-    this.handleToggleTheme = this.handleToggleTheme.bind(this);
-  }
-
-  handleToggleTheme() {
+  handleToggleTheme = () => {
     this.setState(prevState => ({
       theme: prevState.theme === 'dark' ? 'light' : 'dark'
     }));
