@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { createContext } from 'react';
+
+export const ThemeContextClass = createContext();
 
 export class ThemeProvider extends React.Component {
-  state = {
-    theme: 'dark',
+  constructor(props) {
+    super(props);
+
+    let theme = 'dark';
+
+    try {
+      theme = JSON.parse(localStorage.getItem('theme'));
+    } catch (error) {
+      console.log(error);
+    }
+
+    this.state = {
+      theme,
+    }
   }
 
   handleToggleTheme = () => {
     this.setState(prevState => ({
       theme: prevState.theme === 'dark' ? 'light' : 'dark',
-    }));
+    }), () => {
+      localStorage.setItem('theme', JSON.stringify(this.state.theme));
+    });
+
+    console.log('Fora: ', this.state);
   }
 
   render() {
