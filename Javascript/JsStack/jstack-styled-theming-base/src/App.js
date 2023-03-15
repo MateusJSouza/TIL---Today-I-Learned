@@ -14,9 +14,7 @@ export default class App extends React.Component {
   };
 
   // Executa na primeira vez em que o componente é montado/executado
-  componentDidMount() {
-    console.log('componentDidMount executed');
-  }
+  componentDidMount() {}
 
   // Método executado toda vez que o componente for atualizado
   componentDidUpdate(prevProps, prevState) {
@@ -33,28 +31,16 @@ export default class App extends React.Component {
   }
 
   // Evita que um estado ou uma propriedade seja atualizado(a) desnecessariamente
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate', {
-      currentState: this.state,
-      nextProps,
-      nextState
-    })
-
-    return false;
-  }
+  shouldComponentUpdate(nextProps, nextState) {}
 
   render() {
-    console.log('rendered');
-
     return (
       <ThemeProvider>
         <ThemeContextClass.Consumer>
-          {({ theme, handleToggleTheme }) => (
+          {({ theme }) => (
             <StyledThemeProvider theme={themes[theme] || themes.dark}>
               <GlobalStyle />
-              <button onClick={handleToggleTheme}>Change state</button>
-              {theme === 'dark' && <Layout />}
-              <br /> <br /> <br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <Layout />
             </StyledThemeProvider>
           )}
         </ThemeContextClass.Consumer>
