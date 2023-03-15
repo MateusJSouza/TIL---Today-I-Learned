@@ -27,6 +27,11 @@ export default class App extends React.Component {
     })
   }
 
+  // Pega os erros que acontecem dentro dos componentes filhos
+  componentDidCatch(error, info) {
+    console.log({ error,info });
+  }
+
   render() {
     console.log('rendered');
 
