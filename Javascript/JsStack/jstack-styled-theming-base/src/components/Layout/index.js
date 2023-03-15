@@ -6,13 +6,11 @@ import Footer from '../Footer';
 
 export default class Layout extends React.Component {
   componentDidMount() {
-    console.log('componente montou...')
     document.addEventListener('scroll', this.handleScroll);
   }
 
   // Executa antes do componente sair da tela
   componentWillUnmount() {
-    console.log('componente vai desmontar...');
     document.removeEventListener('scroll', this.handleScroll);
   }
 

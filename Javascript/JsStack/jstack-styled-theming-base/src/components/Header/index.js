@@ -3,32 +3,37 @@ import React, { Component } from 'react';
 import { Container } from './styles';
 import { ThemeContextClass } from '../../contexts/ThemeContextClass';
 
-export default class Header extends Component {
+function HOC(ComponenteHeader) {
+  return class Component extends React.Component {
+    render() {
+      return (
+        <ThemeContextClass.Consumer>
+          {(value) => (
+            <ComponenteHeader {...value} />
+          )}
+        </ThemeContextClass.Consumer>
+      )
+    }
+  }
+}
+
+class Header extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.theme !== prevProps.theme) {
+      console.log('tema mudou...')
+    }
+  }
+
   render() {
     return (
-      <ThemeContextClass.Consumer>
-        {({ theme, handleToggleTheme }) => (
-          <Container>
-            <h1>JStack's Blog</h1>
-            <button type="button" onClick={handleToggleTheme}>
-              { theme === 'dark' ? '🌞' : '🌚' }
-            </button>
-          </Container>
-        )}
-      </ThemeContextClass.Consumer>
+      <Container>
+        <h1>JStack's Blog</h1>
+        <button type="button" onClick={this.props.handleToggleTheme}>
+          { this.props.theme === 'dark' ? '🌞' : '🌚' }
+        </button>
+      </Container>
     );
   }
 }
 
-// export default function Header() {
-//   const { onToggleTheme, selectedThemeIcon } = useContext(ThemeContext)
-
-  // return (
-  //   <Container>
-  //     <h1>JStack's Blog</h1>
-  //     <button type="button" onClick={onToggleTheme}>
-  //       { selectedThemeIcon === 'dark' ? '🌞' : '🌚' }
-  //     </button>
-  //   </Container>
-  // );
-// }
+export default HOC(Header);
