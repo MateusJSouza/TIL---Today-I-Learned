@@ -18,6 +18,15 @@ export default class App extends React.Component {
     console.log('componentDidMount executed');
   }
 
+  // Método executado toda vez que o componente for atualizado
+  componentDidUpdate(prevProps, prevState) {
+    console.log({
+      currentState: this.state,
+      prevState,
+      prevProps
+    })
+  }
+
   render() {
     console.log('rendered');
 
