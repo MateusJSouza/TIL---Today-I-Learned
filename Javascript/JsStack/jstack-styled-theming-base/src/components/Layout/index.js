@@ -1,16 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import Footer from '../Footer';
 import Header from '../Header';
-import PostsList from '../PostsList';
+import PostsLists from '../PostsList';
+import Footer from '../Footer';
 
-export default function Layout() {
-  return (
-    <>
-      <Header />
-      <PostsList />
-      <Footer />
-    </>
-  );
+export default class Layout extends React.Component {
+  componentDidMount() {
+    console.log('componente montou...')
+    document.addEventListener('scroll', this.handleScroll);
+  }
+
+  // Executa antes do componente sair da tela
+  componentWillUnmount() {
+    console.log('componente vai desmontar...');
+    document.removeEventListener('scroll', this.handleScroll);
+  }
+
+  // EventListener de scroll
+  handleScroll = () => {
+    console.log('scrolled...')
+  };
+
+  render() {
+    return (
+      <>
+        <Header />
+        <PostsLists />
+        <Footer />
+      </>
+    )
+  }
 }
