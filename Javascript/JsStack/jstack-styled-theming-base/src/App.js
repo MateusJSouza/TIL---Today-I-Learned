@@ -21,8 +21,6 @@ export default class App extends React.Component {
   render() {
     const { theme } = this.state;
 
-    console.log(this.state);
-
     return (
       <ThemeProvider theme={themes[theme] || themes.dark}>
         <GlobalStyle />
