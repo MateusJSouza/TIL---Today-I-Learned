@@ -20,7 +20,7 @@ export default class App extends React.Component {
 
   // Método executado toda vez que o componente for atualizado
   componentDidUpdate(prevProps, prevState) {
-    console.log({
+    console.log('componentDidUpdate',{
       currentState: this.state,
       prevState,
       prevProps
@@ -30,6 +30,17 @@ export default class App extends React.Component {
   // Pega os erros que acontecem dentro dos componentes filhos
   componentDidCatch(error, info) {
     console.log({ error,info });
+  }
+
+  // Evita que um estado ou uma propriedade seja atualizado(a) desnecessariamente
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', {
+      currentState: this.state,
+      nextProps,
+      nextState
+    })
+
+    return false;
   }
 
   render() {
