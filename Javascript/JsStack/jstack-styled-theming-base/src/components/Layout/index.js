@@ -5,22 +5,12 @@ import Footer from '../Footer';
 import Header from '../Header';
 import PostsList from '../PostsList';
 
-export default function Layout({ onToggleTheme, selectedTheme }) {
+export default function Layout() {
   return (
     <>
-      <Header
-        onToggleTheme={onToggleTheme}
-        selectedTheme={selectedTheme}
-      />
+      <Header />
       <PostsList />
-      <Footer
-        onToggleTheme={onToggleTheme}
-        selectedTheme={selectedTheme}
-      />
+      <Footer />
     </>
   );
 }
-
-Layout.propTypes = {
-  selectedTheme: PropTypes.string.isRequired,
-};
