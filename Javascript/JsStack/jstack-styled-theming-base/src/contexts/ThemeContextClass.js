@@ -1,17 +1,40 @@
-import React, { createContext, useState } from 'react';
+import React from 'react';
 
-export const ThemeContextClass = createContext();
-
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark');
-
-  function handleToggleTheme() {
-    setTheme(prevState => prevState === 'dark' ? 'light' : 'dark')
+export class ThemeProvider extends React.Component {
+  state = {
+    theme: 'dark',
   }
 
-  return (
-    <ThemeContextClass.Provider value={{ theme, handleToggleTheme }}>
-      {children}
-    </ThemeContextClass.Provider>
-  )
+  handleToggleTheme = () => {
+    this.setState(prevState => ({
+      theme: prevState.theme === 'dark' ? 'light' : 'dark',
+    }));
+  }
+
+  render() {
+    return (
+      <ThemeContextClass.Provider
+        value={{
+          theme: this.state.theme,
+          handleToggleTheme: this.handleToggleTheme
+        }}
+      >
+        {this.props.children}
+      </ThemeContextClass.Provider>
+    )
+  }
 }
+
+// export function ThemeProvider({ children }) {
+//   const [theme, setTheme] = useState('dark');
+
+//   function handleToggleTheme() {
+//     setTheme(prevState => prevState === 'dark' ? 'light' : 'dark')
+//   }
+
+//   return (
+//     <ThemeContextClass.Provider value={{ theme, handleToggleTheme }}>
+//       {children}
+//     </ThemeContextClass.Provider>
+//   )
+// }
