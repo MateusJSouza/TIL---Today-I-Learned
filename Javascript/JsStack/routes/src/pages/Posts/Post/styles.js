@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.article`
-  background: ${({ theme }) => theme.postBackgroundColor};
+  background: #333;
   display: flex;
   flex-direction: column;
   padding: 16px;
