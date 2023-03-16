@@ -14,6 +14,7 @@ export function Layout() {
       <Nav>
         <Link to="/">Home</Link>
         <Link to="/posts">Posts</Link>
+        <Link to="/posts/1231221">Post</Link>
       </Nav>
       <Routes />
       <Footer />

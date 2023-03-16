@@ -10,7 +10,6 @@ export function Posts() {
   return (
     <Container>
       {posts.map(post => {
-        console.log(post)
         return (
           <Post
             key={post.id}
