@@ -1,4 +1,4 @@
-var convertToTitle = function(columnNumber) {
+const convertToTitle = (columnNumber) => {
   let result = '';
 
   while (columnNumber > 0) {
