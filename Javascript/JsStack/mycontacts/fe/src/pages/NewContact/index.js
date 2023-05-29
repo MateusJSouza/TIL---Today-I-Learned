@@ -1,5 +1,7 @@
+import { PageHeader } from '../../components/PageHeader';
+
 export function NewContact() {
   return (
-    <h1>New</h1>
+    <PageHeader title="Novo contato" />
   );
 }
