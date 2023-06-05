@@ -70,8 +70,8 @@ function romanToInt(s) {
     }
 
     // CD : 400
-    if (romans[arr[i]] === romans['C']) {
-      if (romans[arr[i - 1]] === romans['D']) {
+    if (romans[arr[i]] === romans['D']) {
+      if (romans[arr[i - 1]] === romans['C']) {
         sum -= 100 * 2
       }
     }
