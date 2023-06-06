@@ -12,9 +12,10 @@ export default styled.select`
 
   font-size: 16px;
 
-  padding: 0 16px;
+padding: 0 16px;
 
   transition: border-color 0.2s ease-in;
+  appearance: none; // desabilita os estilos padrões do input
 
   &:focus {
     border-color: ${({ theme }) => theme.colors.primary.main};
