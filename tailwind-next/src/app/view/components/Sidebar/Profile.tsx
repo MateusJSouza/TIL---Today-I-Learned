@@ -2,7 +2,7 @@ import { LogOut } from 'lucide-react'
 
 export function Profile() {
   return (
-    <div className="grid-cols-profile grid gap-3">
+    <div className="grid grid-cols-profile gap-3">
       <img
         src="https://github.com/MateusJSouza.png"
         className="h-10 w-10 rounded-full"
