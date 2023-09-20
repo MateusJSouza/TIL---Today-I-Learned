@@ -98,7 +98,7 @@ export default function Home() {
             <Label htmlFor="country">Country</Label>
             <Select placeholder="Select a country...">
               <SelectItem value="br" text="Brazil" />
-              <SelectItem value="us" text="United State" />
+              <SelectItem value="us" text="United States" />
               <SelectItem value="ge" text="Germany" />
             </Select>
           </div>
