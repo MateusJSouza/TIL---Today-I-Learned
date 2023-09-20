@@ -3,8 +3,10 @@ import { Select } from './view/components/Form/Select'
 import * as Input from '@/app/view/components/Input'
 import * as FileInput from '@/app/view/components/Form/FileInput'
 
-import { Mail } from 'lucide-react'
+import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
 import { SelectItem } from './view/components/Form/Select/SelectItem'
+import { Textarea } from './view/components/Form/Textarea'
+import { Label } from './view/components/Form/Label'
 
 export default function Home() {
   return (
@@ -42,12 +44,7 @@ export default function Home() {
           className="mt-6 flex w-full flex-col gap-5 divide-y divide-zinc-200"
         >
           <div className="grid grid-cols-form gap-3">
-            <label
-              htmlFor="firstName"
-              className="text-sm font-medium text-zinc-700"
-            >
-              Name
-            </label>
+            <Label htmlFor="firstName">Name</Label>
             <div className="grid grid-cols-2 gap-6">
               <Input.Root>
                 <Input.Control defaultValue="Mateus" />
@@ -61,15 +58,10 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
-            <label
-              htmlFor="email"
-              className="text-sm font-medium text-zinc-700"
-            >
-              Email address
-            </label>
+            <Label htmlFor="email">Email address</Label>
             <Input.Root>
               <Input.Prefix>
-                <Mail className="h-5 w-5 text-zinc-500" />
+                <Mail className="h-4 w-4 text-zinc-500" strokeWidth={3} />
               </Input.Prefix>
               <Input.Control
                 id="email"
@@ -81,15 +73,12 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
-            <label
-              htmlFor="photo"
-              className="text-sm font-medium text-zinc-700"
-            >
+            <Label htmlFor="photo">
               Your photo
               <span className="mt-0.5 block text-sm font-normal text-zinc-500">
                 This will be displayed on your profile.
               </span>
-            </label>
+            </Label>
             <FileInput.Root className="flex items-start gap-5">
               <FileInput.ImagePreview />
               <FileInput.Trigger />
@@ -98,9 +87,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
-            <label htmlFor="role" className="text-sm font-medium text-zinc-700">
-              Role
-            </label>
+            <Label htmlFor="role">Role</Label>
             <Input.Root>
               <Input.Control id="role" defaultValue="CEO" />
             </Input.Root>
@@ -108,12 +95,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
-            <label
-              htmlFor="country"
-              className="text-sm font-medium text-zinc-700"
-            >
-              Country
-            </label>
+            <Label htmlFor="country">Country</Label>
             <Select placeholder="Select a country...">
               <SelectItem value="br" text="Brazil" />
               <SelectItem value="us" text="United State" />
@@ -122,12 +104,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
-            <label
-              htmlFor="timezone"
-              className="text-sm font-medium text-zinc-700"
-            >
-              Timezone
-            </label>
+            <Label htmlFor="timezone">Timezone</Label>
             <Select placeholder="Select a timezone...">
               <SelectItem
                 value="utc8"
@@ -138,25 +115,78 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
-            <label htmlFor="bio" className="text-sm font-medium text-zinc-700">
+            <Label htmlFor="bio">
               Bio
               <span className="mt-0.5 block text-sm font-normal text-zinc-500">
                 Write a short introduction.
               </span>
-            </label>
-            <div />
+            </Label>
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <Select placeholder="" defaultValue="normal">
+                  <SelectItem
+                    value="normal"
+                    defaultChecked
+                    text="Normal Text"
+                  />
+                  <SelectItem value="md" text="Markdown" />
+                </Select>
+
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors hover:bg-zinc-50"
+                  >
+                    <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors hover:bg-zinc-50"
+                  >
+                    <Italic className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors hover:bg-zinc-50"
+                  >
+                    <Link className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors hover:bg-zinc-50"
+                  >
+                    <List className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors hover:bg-zinc-50"
+                  >
+                    <ListOrdered
+                      className="h-4 w-4 text-zinc-500"
+                      strokeWidth={3}
+                    />
+                  </button>
+                </div>
+              </div>
+
+              <Textarea
+                id="bio"
+                defaultValue="I'm a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development. "
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
-            <label
-              htmlFor="projects"
-              className="text-sm font-medium text-zinc-700"
-            >
+            <Label htmlFor="projects">
               Portfolio projects
               <span className="mt-0.5 block text-sm font-normal text-zinc-500">
                 Share a few snippets on your work.
               </span>
-            </label>
+            </Label>
             <FileInput.Root>
               <FileInput.Trigger />
               <FileInput.Control multiple />
