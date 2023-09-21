@@ -18,20 +18,20 @@ export default function Home() {
 
       <div className="mt-6 flex flex-col">
         <div className="flex flex-col justify-between gap-4 border-b border-zinc-200 pb-5 lg:flex-row lg:items-center">
-          <section className="space-y-1">
+          <div className="space-y-1">
             <h2 className="text-lg font-medium text-zinc-900">Personal info</h2>
             <span className="text-sm text-zinc-500">
               Update your photo and personal details here.
             </span>
-          </section>
-          <section className="flex items-center gap-2">
+          </div>
+          <div className="flex items-center gap-2">
             <Button type="button" variant="outline">
               Cancel
             </Button>
             <Button variant="primary" type="submit" form="settings">
               Save
             </Button>
-          </section>
+          </div>
         </div>
         <form
           id="settings"
