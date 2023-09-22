@@ -1,13 +1,13 @@
 import { SettingsTabs } from './view/components/SettingsTabs'
-import { Select } from './view/components/Form/Select'
+import * as Select from '@/app/view/components/Form/Select'
 import * as Input from '@/app/view/components/Input'
 import * as FileInput from '@/app/view/components/Form/FileInput'
 
 import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
-import { SelectItem } from './view/components/Form/Select/SelectItem'
 import { Textarea } from './view/components/Form/Textarea'
 import { Label } from './view/components/Form/Label'
 import { Button } from './view/components/Button'
+import { CountrySelect } from './view/components/CountrySelect'
 
 export default function Home() {
   return (
@@ -101,22 +101,26 @@ export default function Home() {
 
           <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
             <Label htmlFor="country">Country</Label>
-            <Select placeholder="Select a country...">
-              <SelectItem value="br" text="Brazil" />
-              <SelectItem value="us" text="United States" />
-              <SelectItem value="ge" text="Germany" />
-            </Select>
+
+            <CountrySelect />
           </div>
 
           <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
             <Label htmlFor="timezone">Timezone</Label>
-            <Select placeholder="Select a timezone...">
-              <SelectItem
-                value="utc8"
-                text="Pacific Standard Time (PST) (UTC-08:00)"
-              />
-              <SelectItem value="utc3" text="América São Paulo (UTC-03:00)" />
-            </Select>
+            <Select.Root name="timezone">
+              <Select.Trigger>
+                <Select.Value placeholder="Select your timezone..." />
+              </Select.Trigger>
+
+              <Select.Content>
+                <Select.Item value="utc-3">
+                  <Select.ItemText>
+                    Pacific Standard Time (PST)
+                    <span className="text-sm text-zinc-500">UTC 08:00</span>
+                  </Select.ItemText>
+                </Select.Item>
+              </Select.Content>
+            </Select.Root>
           </div>
 
           <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
@@ -128,35 +132,36 @@ export default function Home() {
             </Label>
             <div className="space-y-3">
               <div className="flex flex-col gap-3 lg:grid lg:grid-cols-2">
-                <Select placeholder="" defaultValue="normal">
-                  <SelectItem
-                    value="normal"
-                    defaultChecked
-                    text="Normal Text"
-                  />
-                  <SelectItem value="md" text="Markdown" />
-                </Select>
+                <Select.Root defaultValue="normal">
+                  <Select.Trigger>
+                    <Select.Value />
+                  </Select.Trigger>
 
+                  <Select.Content>
+                    <Select.Item value="normal">
+                      <Select.ItemText>Normal text</Select.ItemText>
+                    </Select.Item>
+                    <Select.Item value="md">
+                      <Select.ItemText>Markdown</Select.ItemText>
+                    </Select.Item>
+                  </Select.Content>
+                </Select.Root>
                 <div className="flex items-center gap-1">
-                  <Button type="button" variant="ghost">
-                    <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  <Button variant="ghost">
+                    <Bold className="h-4 w-4 text-zinc-400" strokeWidth={3} />
                   </Button>
-
-                  <Button type="button" variant="ghost">
-                    <Italic className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  <Button variant="ghost">
+                    <Italic className="h-4 w-4 text-zinc-400" strokeWidth={3} />
                   </Button>
-
-                  <Button type="button" variant="ghost">
-                    <Link className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  <Button variant="ghost">
+                    <Link className="h-4 w-4 text-zinc-400" strokeWidth={3} />
                   </Button>
-
-                  <Button type="button" variant="ghost">
-                    <List className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  <Button variant="ghost">
+                    <List className="h-4 w-4 text-zinc-400" strokeWidth={3} />
                   </Button>
-
-                  <Button type="button" variant="ghost">
+                  <Button variant="ghost">
                     <ListOrdered
-                      className="h-4 w-4 text-zinc-500"
+                      className="h-4 w-4 text-zinc-400"
                       strokeWidth={3}
                     />
                   </Button>
