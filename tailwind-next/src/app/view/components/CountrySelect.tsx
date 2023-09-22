@@ -39,7 +39,10 @@ export function CountrySelect() {
           return (
             <Select.Item key={code} value={code}>
               <Select.ItemPrefix>
-                <Flag className="h-5 w-5 rounded-full object-cover object-center" />
+                <Flag
+                  className="h-5 w-5 rounded-full object-cover object-center"
+                  code={code}
+                />
               </Select.ItemPrefix>
 
               <Select.ItemText>{title}</Select.ItemText>
