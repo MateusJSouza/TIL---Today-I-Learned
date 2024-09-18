@@ -4,8 +4,8 @@ import { useState, useCallback, useId, type FormEvent } from 'react'
 import { Button } from './button'
 import { Input } from './input'
 import { DialogClose, DialogContent, DialogTitle } from './dialog'
-import { createBoard } from '../api/boards' // Assuma que esta função existe
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { createBoard } from '../functions/create-board'
 
 export function NewBoardDialog() {
   const [columns, setColumns] = useState(['Todo', 'Doing'])
