@@ -1,20 +1,26 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useId, type FormEvent } from 'react'
 import { Button } from './button'
 import { Input } from './input'
 import { DialogClose, DialogContent, DialogTitle } from './dialog'
+import { createBoard } from '../api/boards' // Assuma que esta função existe
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 export function NewBoardDialog() {
   const [columns, setColumns] = useState(['Todo', 'Doing'])
+  const [boardName, setBoardName] = useState('')
+  const queryClient = useQueryClient()
 
-  const addColumn = () => {
-    setColumns([...columns, ''])
-  }
-
-  const removeColumn = (index: number) => {
-    setColumns(columns.filter((_, i) => i !== index))
-  }
+  const mutation = useMutation({
+    mutationFn: createBoard,
+    onSuccess: () => {
+      // Invalida e busca novamente a query 'boards'
+      queryClient.invalidateQueries({ queryKey: ['boards'] })
+      // Fecha o diálogo
+      // Limpa o formulário
+    },
+  })
 
   const updateColumn = useCallback((index: number, value: string) => {
     setColumns(prevColumns => {
@@ -23,6 +29,21 @@ export function NewBoardDialog() {
       return newColumns
     })
   }, [])
+
+  const addColumn = useCallback(() => {
+    setColumns(prevColumns => [...prevColumns, ''])
+  }, [])
+
+  const removeColumn = useCallback((index: number) => {
+    setColumns(prevColumns => prevColumns.filter((_, i) => i !== index))
+  }, [])
+
+  const columnId = useId()
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    mutation.mutate({ name: boardName, columns })
+  }
 
   return (
     <DialogContent>
@@ -33,23 +54,28 @@ export function NewBoardDialog() {
           <X className="size-5 text-white" />
         </DialogClose>
       </div>
-      <form className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="boardName" className="block text-sm font-medium mb-2">
             Name
           </label>
-          <Input id="boardName" placeholder="e.g. Web Design" />
+          <Input
+            id="boardName"
+            placeholder="e.g. Web Design"
+            value={boardName}
+            onChange={e => setBoardName(e.target.value)}
+          />
         </div>
         <div>
           <label className="block text-sm font-medium mb-2">Columns</label>
           {columns.map((column, index) => (
             <div
-              key={`column-${index}-${column}`}
+              key={`${columnId}-${index}`}
               className="flex items-center mb-2 gap-2"
             >
               <Input
                 value={column}
-                onChange={e => updateColumn(index, e.target.value)}
+                onChange={event => updateColumn(index, event.target.value)}
                 className="flex-grow mr-4"
               />
               <button
